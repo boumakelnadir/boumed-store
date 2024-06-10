@@ -5,6 +5,7 @@ import 'package:introduction_screen/introduction_screen.dart';
 
 class OnboardingScreen extends StatelessWidget {
   OnboardingScreen({super.key});
+  static String id = 'onboarding';
 
   final List<String> imageList = [
     'assets/images/online-shop-opening-ceremony-illustration-concept-on-white-background-vector.jpg',

@@ -25,6 +25,7 @@ class _UpdateProductViewState extends State<UpdateProductView> {
   @override
   void initState() {
     isloading = false;
+
     title.text = widget.product.title;
     price.text = widget.product.price.toString();
     rate.text = widget.product.ratingModel.rate.toString();
@@ -47,11 +48,11 @@ class _UpdateProductViewState extends State<UpdateProductView> {
     //     ModalRoute.of(context)!.settings.arguments as ProductModel;
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.blue,
+        // backgroundColor: Colors.blue,
         elevation: 0,
         centerTitle: true,
         title: Text(
-          widget.product.title.substring(0, 20),
+          widget.product.title,
         ),
       ),
       body: Padding(

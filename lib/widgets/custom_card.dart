@@ -2,10 +2,24 @@ import 'package:boumedstore/models/product_model.dart';
 import 'package:boumedstore/views/update_product_view.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
-class CustomCard extends StatelessWidget {
+class CustomCard extends StatefulWidget {
   const CustomCard({super.key, required this.product});
   final ProductModel product;
+
+  @override
+  State<CustomCard> createState() => _CustomCardState();
+}
+
+class _CustomCardState extends State<CustomCard> {
+  bool ontap = false;
+  @override
+  void initState() {
+    ontap = false;
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -13,7 +27,7 @@ class CustomCard extends StatelessWidget {
       onTap: () {
         Navigator.of(context).push(MaterialPageRoute(builder: (context) {
           return UpdateProductView(
-            product: product,
+            product: widget.product,
           );
         }));
       },
@@ -41,7 +55,7 @@ class CustomCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      product.title.substring(0, 11),
+                      widget.product.title.substring(0, 11),
                       overflow: TextOverflow.ellipsis,
                       style: const TextStyle(
                         color: Colors.grey,
@@ -53,15 +67,21 @@ class CustomCard extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          r'$' ' ${product.price}',
+                          r'$' ' ${widget.product.price}',
                           style: const TextStyle(
                             color: Colors.black,
                             fontSize: 18,
                           ),
                         ),
-                        const Icon(
-                          Icons.favorite,
-                          color: Colors.red,
+                        GestureDetector(
+                          onTap: () {
+                            ontap = !ontap;
+                            setState(() {});
+                          },
+                          child: Icon(
+                            ontap ? Icons.favorite : Icons.favorite_border,
+                            color: Colors.red,
+                          ),
                         )
                       ],
                     )
@@ -76,7 +96,7 @@ class CustomCard extends StatelessWidget {
             child: CachedNetworkImage(
               width: 100,
               height: 100,
-              imageUrl: product.image,
+              imageUrl: widget.product.image,
               progressIndicatorBuilder: (context, url, downloadProgress) =>
                   Center(
                       child: CircularProgressIndicator(

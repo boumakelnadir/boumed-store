@@ -15,7 +15,7 @@ class CustomBotton extends StatelessWidget {
           child: Container(
             margin: const EdgeInsets.symmetric(vertical: 20),
             decoration: BoxDecoration(
-              color: Colors.blue,
+              color: Colors.black,
               borderRadius: BorderRadius.circular(20),
             ),
             height: 50,

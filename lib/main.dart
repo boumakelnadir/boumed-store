@@ -11,6 +11,7 @@ class StoreApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+        appBarTheme: AppBarTheme(color: Colors.black),
         scaffoldBackgroundColor: Colors.white,
         useMaterial3: false,
       ),

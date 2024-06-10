@@ -12,7 +12,7 @@ class GetCategories {
     List<ProductModel> productList = [];
 
     for (var i = 0; i < data.length; i++) {
-      productList.add(data[i]);
+      productList.add(ProductModel.fromJson(data[i]));
     }
     return productList;
   }

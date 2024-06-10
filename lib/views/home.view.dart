@@ -1,5 +1,6 @@
 import 'dart:developer';
 import 'package:boumedstore/models/product_model.dart';
+import 'package:boumedstore/services/get_all_categories_services.dart';
 import 'package:boumedstore/services/get_categories.dart';
 import 'package:boumedstore/widgets/custom_card.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
@@ -17,15 +18,15 @@ class HomeView extends StatefulWidget {
 class _HomeViewState extends State<HomeView> {
   int correntIndex = 0;
 
-  List<String> categoryName = [
+  List categoryName = [
     "electronics",
     "jewelery",
     "men's clothing",
     "women's clothing",
   ];
   Future<List<ProductModel>> categories() {
-    return GetCategories()
-        .getCategories(categoryName: categoryName[correntIndex]);
+    return GetAllCategories()
+        .getAllCategories(categoryName: categoryName[correntIndex]);
   }
 
   final GlobalKey _key = GlobalKey();

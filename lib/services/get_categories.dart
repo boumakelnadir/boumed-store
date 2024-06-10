@@ -1,8 +1,8 @@
 import 'package:boumedstore/helper/api.dart';
 import 'package:boumedstore/models/product_model.dart';
 
-class GetCategories {
-  Future<List<ProductModel>> getCategories(
+class GetAllCategories {
+  Future<List<ProductModel>> getAllCategories(
       {required String categoryName}) async {
     const String baseUrl = 'https://fakestoreapi.com';
 

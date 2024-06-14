@@ -1,12 +1,13 @@
 import 'package:boumedstore/views/home.view.dart';
 import 'package:boumedstore/views/onboarding_screen.dart';
+import 'package:boumedstore/views/splash_view.dart';
 import 'package:flutter/material.dart';
 
 main() => runApp(const StoreApp());
 
 class StoreApp extends StatelessWidget {
   const StoreApp({super.key});
-
+  final visibility = 0;
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -19,9 +20,11 @@ class StoreApp extends StatelessWidget {
       routes: {
         HomeView.id: (context) => const HomeView(),
         OnboardingScreen.id: (context) => OnboardingScreen(),
+        SplashView.id: (context) => const SplashView(),
       },
-      initialRoute: OnboardingScreen.id,
-      home: const HomeView(),
+      initialRoute: SplashView.id,
+      home: OnboardingScreen(),
+      // const HomeView(),
     );
   }
 }

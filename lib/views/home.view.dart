@@ -1,6 +1,6 @@
 import 'dart:developer';
+import 'package:boumedstore/helper/custom_drawer.dart';
 import 'package:boumedstore/models/product_model.dart';
-import 'package:boumedstore/services/get_all_categories_services.dart';
 import 'package:boumedstore/services/get_categories.dart';
 import 'package:boumedstore/widgets/custom_card.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
@@ -33,17 +33,18 @@ class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: const CustomDrawer(),
       bottomNavigationBar: CurvedNavigationBar(
         key: _key,
         index: correntIndex,
         height: 50,
         items: const [
           Icon(
-            Icons.diamond,
+            Icons.laptop,
             color: Colors.white,
           ),
           Icon(
-            Icons.laptop,
+            Icons.diamond,
             color: Colors.white,
           ),
           Icon(
@@ -65,13 +66,29 @@ class _HomeViewState extends State<HomeView> {
           log(categoryName[correntIndex]);
         },
       ),
-      drawer: const Drawer(),
       appBar: AppBar(
+        leading: Builder(
+          builder: (context) => IconButton(
+            tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
+            onPressed: () => Scaffold.of(context).openDrawer(),
+            icon: Image.asset(
+              'assets/logo/boumed02.png',
+              height: 32,
+              width: 32,
+            ),
+          ),
+        ),
         backgroundColor: Colors.black,
         centerTitle: true,
-        title: Text(
-          categoryName[correntIndex],
-          style: const TextStyle(),
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            Image.asset(
+              'assets/logo/boumed03.png',
+              width: 90,
+              height: 90,
+            ),
+          ],
         ),
         elevation: 0,
         actions: <Widget>[

@@ -35,7 +35,12 @@ class OnboardingScreen extends StatelessWidget {
           ),
           PageViewModel(
             title: 'Are You Excited !',
-            body: "Let's Go Started",
+            // body: "Let's Go Started",
+            bodyWidget: Image.asset(
+              'assets/logo/boumed.png',
+              height: 150,
+              color: Colors.black,
+            ),
             image: CustomImage(
               image: imageList[2],
             ),

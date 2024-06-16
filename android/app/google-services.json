@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "823946262338",
+    "project_id": "boumed-store-7ff42",
+    "storage_bucket": "boumed-store-7ff42.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:823946262338:android:bf0a5d4e2b839ece0f3adb",
+        "android_client_info": {
+          "package_name": "com.example.boumedstore"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA_LznvWS7zff7pKIwK0NBmnKkd99kgvF4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,13 +1,40 @@
+import 'dart:developer';
 import 'package:boumedstore/views/home.view.dart';
 import 'package:boumedstore/views/onboarding_screen.dart';
-import 'package:boumedstore/views/splash_view.dart';
+import 'package:boumedstore/splash_screen/splash_view.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
-main() => runApp(const StoreApp());
+main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  runApp(const StoreApp());
+}
 
-class StoreApp extends StatelessWidget {
+class StoreApp extends StatefulWidget {
   const StoreApp({super.key});
-  final visibility = 0;
+
+  @override
+  State<StoreApp> createState() => _StoreAppState();
+}
+
+class _StoreAppState extends State<StoreApp> {
+  @override
+  void initState() {
+    super.initState();
+    FirebaseAuth.instance.authStateChanges().listen((User? user) {
+      if (user == null) {
+        log('User is currently signed out!');
+      } else {
+        log('User is signed in!');
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

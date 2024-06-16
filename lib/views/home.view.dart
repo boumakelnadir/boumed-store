@@ -62,8 +62,6 @@ class _HomeViewState extends State<HomeView> {
         onTap: (value) {
           correntIndex = value;
           setState(() {});
-          log(correntIndex.toString());
-          log(categoryName[correntIndex]);
         },
       ),
       appBar: AppBar(

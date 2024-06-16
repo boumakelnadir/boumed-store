@@ -40,6 +40,10 @@ dependencies:
   curved_navigation_bar: ^1.0.5
   introduction_screen: ^3.1.14
   flutter_native_splash: ^2.4.0
+  firebase_core: ^3.1.0
+  firebase_auth: ^5.1.0
+  awesome_dialog: ^3.2.1
+  google_fonts: ^6.2.1
 
 dev_dependencies:
   flutter_test:

@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'package:boumedstore/helper/custom_drawer.dart';
 import 'package:boumedstore/models/product_model.dart';
 import 'package:boumedstore/services/get_categories.dart';

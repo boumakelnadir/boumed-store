@@ -62,16 +62,16 @@ class _UpdateProductViewState extends State<UpdateProductView> {
             : Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  CustomTextField(
+                  CustomTextFormField(
                     hintText: 'Title',
                     mycontroller: title,
                   ),
-                  CustomTextField(
+                  CustomTextFormField(
                     hintText: 'Price',
                     mycontroller: price,
                     keyboardType: TextInputType.number,
                   ),
-                  CustomTextField(
+                  CustomTextFormField(
                     hintText: 'Description',
                     mycontroller: description,
                   ),

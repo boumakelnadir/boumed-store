@@ -1,5 +1,7 @@
 import 'dart:developer';
 import 'package:boumedstore/views/home.view.dart';
+import 'package:boumedstore/views/sign_in_view.dart';
+import 'package:boumedstore/views/sign_up_view.dart';
 import 'package:boumedstore/views/onboarding_screen.dart';
 import 'package:boumedstore/splash_screen/splash_view.dart';
 import 'package:flutter/material.dart';
@@ -48,9 +50,11 @@ class _StoreAppState extends State<StoreApp> {
         HomeView.id: (context) => const HomeView(),
         OnboardingScreen.id: (context) => OnboardingScreen(),
         SplashView.id: (context) => const SplashView(),
+        SignUpView.id: (context) => const SignUpView(),
+        SignInView.id: (context) => const SignInView(),
       },
-      initialRoute: SplashView.id,
-      home: OnboardingScreen(),
+      // initialRoute: SplashView.id,
+      home: SignUpView(),
       // const HomeView(),
     );
   }

@@ -15,17 +15,17 @@ class CustomBotton extends StatelessWidget {
           child: Container(
             margin: const EdgeInsets.symmetric(vertical: 20),
             decoration: BoxDecoration(
-              color: Colors.black,
+              color: Colors.white,
               borderRadius: BorderRadius.circular(20),
             ),
             height: 50,
-            width: MediaQuery.of(context).size.width / 2,
+            width: MediaQuery.of(context).size.width / 1.5,
             child: Center(
                 child: Text(
               text,
               style: const TextStyle(
                 fontSize: 20,
-                color: Colors.white,
+                // color: Colors.white,
                 fontWeight: FontWeight.bold,
               ),
             )),

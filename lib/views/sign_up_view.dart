@@ -3,7 +3,6 @@ import 'package:boumedstore/views/sign_in_view.dart';
 import 'package:boumedstore/widgets/custom_botton.dart';
 import 'package:boumedstore/widgets/custom_text_field.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class SignUpView extends StatefulWidget {
   const SignUpView({super.key});
@@ -35,7 +34,11 @@ class _SignUpViewState extends State<SignUpView> {
         body: Form(
           key: _globalKey,
           child: Container(
-            color: Colors.black,
+            decoration: const BoxDecoration(
+                image: DecorationImage(
+                    fit: BoxFit.cover,
+                    image: AssetImage(
+                        'assets/images/pexels-bhylviu-14464685.jpg'))),
             height: MediaQuery.of(context).size.height,
             padding: const EdgeInsets.all(15),
             child: SingleChildScrollView(
@@ -63,6 +66,10 @@ class _SignUpViewState extends State<SignUpView> {
                       ],
                     ),
                   ),
+                  const CustomTextFormField(
+                    hintText: 'Full Name',
+                    keyboardType: TextInputType.name,
+                  ),
                   CustomTextFormField(
                     hintText: 'Email',
                     mycontroller: email,
@@ -84,14 +91,19 @@ class _SignUpViewState extends State<SignUpView> {
                         },
                         child: const Text(
                           'I have an Account',
-                          style: TextStyle(color: Colors.grey, fontSize: 16),
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 16),
                         ),
                       ),
                     ],
                   ),
                   isloading
                       ? const Center(
-                          child: CircularProgressIndicator(),
+                          child: CircularProgressIndicator(
+                            color: Colors.white,
+                          ),
                         )
                       : CustomBotton(
                           text: 'Sign Up',
@@ -104,9 +116,9 @@ class _SignUpViewState extends State<SignUpView> {
                                 email: email.text,
                                 password: password.text,
                               );
+                              isloading = false;
+                              setState(() {});
                             }
-                            isloading = false;
-                            setState(() {});
                           },
                         )
                 ],

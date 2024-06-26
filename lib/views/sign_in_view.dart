@@ -35,7 +35,11 @@ class _SignInViewState extends State<SignInView> {
         body: Form(
           key: _globalKey,
           child: Container(
-            color: Colors.black,
+            decoration: const BoxDecoration(
+                image: DecorationImage(
+                    fit: BoxFit.cover,
+                    image: AssetImage(
+                        'assets/images/pexels-bhylviu-14464685.jpg'))),
             height: MediaQuery.of(context).size.height,
             padding: const EdgeInsets.all(15),
             child: SingleChildScrollView(
@@ -84,7 +88,10 @@ class _SignInViewState extends State<SignInView> {
                         },
                         child: const Text(
                           "I haven't an Account",
-                          style: TextStyle(color: Colors.grey, fontSize: 16),
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 16),
                         ),
                       ),
                     ],

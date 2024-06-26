@@ -2,6 +2,7 @@
 
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:boumedstore/helper/awesome_dialog.dart';
+import 'package:boumedstore/views/home.view.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -15,6 +16,17 @@ Future<void> singInAcount(
       email: email,
       password: password,
     );
+    if (FirebaseAuth.instance.currentUser!.emailVerified) {
+      Navigator.of(context)
+          .pushNamedAndRemoveUntil(HomeView.id, (route) => false);
+    } else {
+      awesomeDialog(
+        context: context,
+        title: 'verify email',
+        desc: 'please verified your email first',
+        dialogType: DialogType.info,
+      );
+    }
   } on FirebaseAuthException catch (e) {
     if (e.code == 'user-not-found') {
       awesomeDialog(

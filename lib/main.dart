@@ -54,8 +54,10 @@ class _StoreAppState extends State<StoreApp> {
         SignInView.id: (context) => const SignInView(),
       },
       // initialRoute: SplashView.id,
-      home: SignUpView(),
-      // const HomeView(),
+      home: (FirebaseAuth.instance.currentUser != null &&
+              FirebaseAuth.instance.currentUser!.emailVerified)
+          ? const HomeView()
+          : const SplashView(),
     );
   }
 }

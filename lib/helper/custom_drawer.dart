@@ -1,4 +1,4 @@
-import 'package:boumedstore/views/sign_up_view.dart';
+import 'package:boumedstore/views/sign_in_view.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -80,7 +80,7 @@ class CustomDrawer extends StatelessWidget {
               onTap: () async {
                 await FirebaseAuth.instance.signOut();
                 Navigator.of(context)
-                    .pushNamedAndRemoveUntil(SignUpView.id, (route) => false);
+                    .pushNamedAndRemoveUntil(SignInView.id, (route) => false);
               },
               leading: const Icon(Icons.logout),
               title: const Text('Log Out'),

@@ -1,4 +1,4 @@
-import 'package:boumedstore/views/home.view.dart';
+import 'package:boumedstore/views/sign_in_view.dart';
 import 'package:boumedstore/widgets/custom_image.dart';
 import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
@@ -37,7 +37,7 @@ class OnboardingScreen extends StatelessWidget {
             title: 'Are You Excited !',
             // body: "Let's Go Started",
             bodyWidget: Image.asset(
-              'assets/logo/boumed.png',
+              'assets/logo/boumed03.png',
               height: 150,
               color: Colors.black,
             ),
@@ -59,7 +59,7 @@ class OnboardingScreen extends StatelessWidget {
         ),
         onDone: () {
           Navigator.of(context)
-              .pushNamedAndRemoveUntil(HomeView.id, (route) => false);
+              .pushNamedAndRemoveUntil(SignInView.id, (route) => false);
         },
         showBackButton: true,
         back: const Icon(

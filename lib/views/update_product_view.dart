@@ -55,49 +55,57 @@ class _UpdateProductViewState extends State<UpdateProductView> {
           widget.product.title,
         ),
       ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16),
-        child: isloading
-            ? const Center(child: CircularProgressIndicator())
-            : Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  CustomTextFormField(
-                    hintText: 'Title',
-                    mycontroller: title,
-                  ),
-                  CustomTextFormField(
-                    hintText: 'Price',
-                    mycontroller: price,
-                    keyboardType: TextInputType.number,
-                  ),
-                  CustomTextFormField(
-                    hintText: 'Description',
-                    mycontroller: description,
-                  ),
-                  CustomBotton(
-                    text: 'Update',
-                    onTap: () async {
-                      try {
-                        await updateProduct(widget.product);
-                        isloading = true;
-                        setState(() {});
-                        ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(content: Text('success')));
-                        Navigator.of(context).pushNamedAndRemoveUntil(
-                            HomeView.id, (route) => false);
+      body: Container(
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            fit: BoxFit.cover,
+            image: AssetImage('assets/images/pexels-bhylviu-14464685.jpg'),
+          ),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          child: isloading
+              ? const Center(child: CircularProgressIndicator())
+              : Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    CustomTextFormField(
+                      hintText: 'Title',
+                      mycontroller: title,
+                    ),
+                    CustomTextFormField(
+                      hintText: 'Price',
+                      mycontroller: price,
+                      keyboardType: TextInputType.number,
+                    ),
+                    CustomTextFormField(
+                      hintText: 'Description',
+                      mycontroller: description,
+                    ),
+                    CustomBotton(
+                      text: 'Update',
+                      onTap: () async {
+                        try {
+                          await updateProduct(widget.product);
+                          isloading = true;
+                          setState(() {});
+                          ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(content: Text('success')));
+                          Navigator.of(context).pushNamedAndRemoveUntil(
+                              HomeView.id, (route) => false);
 
-                        isloading = false;
-                        setState(() {});
-                      } catch (e) {
-                        isloading = false;
-                        setState(() {});
-                        print("error is : $e");
-                      }
-                    },
-                  ),
-                ],
-              ),
+                          isloading = false;
+                          setState(() {});
+                        } catch (e) {
+                          isloading = false;
+                          setState(() {});
+                          print("error is : $e");
+                        }
+                      },
+                    ),
+                  ],
+                ),
+        ),
       ),
     );
   }

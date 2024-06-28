@@ -35,10 +35,11 @@ class _SignUpViewState extends State<SignUpView> {
           key: _globalKey,
           child: Container(
             decoration: const BoxDecoration(
-                image: DecorationImage(
-                    fit: BoxFit.cover,
-                    image: AssetImage(
-                        'assets/images/pexels-bhylviu-14464685.jpg'))),
+              image: DecorationImage(
+                fit: BoxFit.cover,
+                image: AssetImage('assets/images/pexels-bhylviu-14464685.jpg'),
+              ),
+            ),
             height: MediaQuery.of(context).size.height,
             padding: const EdgeInsets.all(15),
             child: SingleChildScrollView(
@@ -116,9 +117,9 @@ class _SignUpViewState extends State<SignUpView> {
                                 email: email.text,
                                 password: password.text,
                               );
-                              isloading = false;
-                              setState(() {});
                             }
+                            isloading = false;
+                            setState(() {});
                           },
                         )
                 ],

@@ -98,7 +98,9 @@ class _SignInViewState extends State<SignInView> {
                   ),
                   isloading
                       ? const Center(
-                          child: CircularProgressIndicator(),
+                          child: CircularProgressIndicator(
+                            color: Colors.white,
+                          ),
                         )
                       : CustomBotton(
                           text: 'Sign in',

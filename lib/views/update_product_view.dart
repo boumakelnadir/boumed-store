@@ -28,7 +28,7 @@ class _UpdateProductViewState extends State<UpdateProductView> {
 
     title.text = widget.product.title;
     price.text = widget.product.price.toString();
-    rate.text = widget.product.ratingModel.rate.toString();
+    rate.text = widget.product.rating.rate.toString();
     description.text = widget.product.desc;
     super.initState();
   }
@@ -118,8 +118,8 @@ class _UpdateProductViewState extends State<UpdateProductView> {
       desc: description.text,
       image: productModel.image,
       category: productModel.category,
-      rate: productModel.ratingModel.rate,
-      count: productModel.ratingModel.count,
+      rate: productModel.rating.rate,
+      count: productModel.rating.count,
     );
   }
 }
